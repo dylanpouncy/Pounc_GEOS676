@@ -2,7 +2,7 @@ Dylan Pouncy
 
 | GEOS 676 Table | Lab | Quiz |
 |-------:|:----:|-------:|
-| Week 1 | (https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/Lab/Week01 "Lab1") | Quiz 1 |
+| Week 1 | [Lab1](https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/Lab/Week01) | Quiz 1 |
 | Week 2 | Lab2 | Quiz 2 |
 | Week 3 | Lab3 | Quiz 3 |
 | Week 4 | Lab4 | Quiz 4 |
