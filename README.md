@@ -1,6 +1,6 @@
 Dylan Pouncy
 
-| GEOS 676 Table |
+| GEOS 676 Table | Lab | Quiz |
 |-------:|:----:|-------:|
 | Week 1 | Lab1 | Quiz 1 |
 | Week 2 | Lab2 | Quiz 2 |
