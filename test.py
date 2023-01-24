@@ -1,5 +1,15 @@
 ##Class Notes##
 
+#Data Types
+
+#Boolean - yes = true, no = false
+#Numbers - can be whole, fractions, decimal, or complex
+#Strings - any sequence of characters
+#byes and byte arrays - could be binary representation of a file
+#lists - ordered sequences of other data types, detoned by square brackets
+#tuples - sequence of immutable python objects, cannot remove values, start at an index of 0, are denoted by paranthesis
+#dictionary - collections of key-value pairs
+
 #Variable Reassignment
 name = "Dylan Pouncy"
 print(name)
@@ -117,3 +127,9 @@ elif month == 12:
 else:
     print("You didn't enter a valid number")
 
+#Loops - each time a loop runs a loop, it is known as an iteration
+
+#For Loop
+
+
+#While Loop
