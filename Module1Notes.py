@@ -126,34 +126,3 @@ elif month == 12:
     print("December")
 else:
     print("You didn't enter a valid number")
-
-#Loops - each time a loop runs a loop, it is known as an iteration
-
-#For Loop
-#EX: for loopVariable in sequence: 
-#       'Do something with loopvariable'
-#EX: languages = ["C", "C++", "Python", "Delphi"]
-#print(languages[0])
-#print(languages[1])
-#print(languages[2])
-#print(languages[3])
-
-#->
-
-languages = ["C", "C++", "Python", "Delphi"]
-for language in languages:
-    print(language)
-
-#While Loop - similar to a for loop, however only runs until a certain condition is met
-#EX: while booleanExpression:
-    #Do something
-magicNumber = "16"
-UserInput = input("Guess The Magic Number:")
-
-while UserInput != magicNumber:
-    UserInput = input("Guess The Magic Number:")
-
-#Adding a counter
-#counter = 0 
-#while counter < 5 :
-#    counter += 1
