@@ -287,3 +287,214 @@ shape4 = new Circle("orange", 2) # Calls second constructor of circle
 print(shape.getArea()) #Prints 12.5663706144
 
 #In above, rectangle is an instance of shape but shape is not an instance of rectangle, the super class shape sets the methods while rectangle defines how to operate the methods
+###################################################################################################################################
+#Built-In Python Functions
+
+#Abs() - used to return the abs value of a num
+value = -8742.19
+absolute_value = abs(value)
+print(absolute_value)
+
+#bool() - convert any python value into a boolean value (T or F), shorthand way of using conditionals
+# Instead of this....
+if x.hasData:
+    result = True
+else:
+    result = False
+
+# You can do...
+result.bool(x.hasData)
+
+#enumerate() - takes in a list and eturns a list containing a tuple for every item in the list. Each tuple contains both an index in the OG list as well as a value in index in the list
+summerMonths = ["June", "July", "August", "September"]
+for (index, value) in enumerate(summerMonths):
+    print("Month ", value, " @ index: ", index)
+# Prints
+# Month  June  @ index:  0
+# Month  July  @ index:  1
+# Month  August  @ index:  2
+# Month  September  @ index:  3
+
+#eval() - parses a string input and execute it as if it were code, effectively allowing you to run python in python plus more not covered
+#using eval() in conjunction with input() is terrible for security
+i = 4
+result = eval('i +1')
+print(result)
+#prints 5
+
+#float - takes in a string or integar and returns a float representation of your input
+four = '4.6' # You cannot do math to this value
+float_val = float(four) 
+print(float_val + 5)
+# Prints 9.6
+
+#hasattr() - takes two parameters: an object and an attribute name, and returns a boolean value indicating if the named attribute is in the object you provide
+class Vehicle():
+    def __init__(self):
+        self.color = 'Red'
+myCar = Vehicle()
+hasColor = hasattr(myCar, 'color')
+hasMpg = hasattr(myCar, 'mpg')
+print(hasColor) # Prints True
+print(hasMpg) # Prints False
+
+#getattr() = takes two parameters: an object and an attribute name, and returns the value associated w/ the attribute name inside the object. Equivalent of using dot notation
+class Vehicle():
+    def __init__(self):
+        self.color = 'Red'
+myCar = Vehicle()
+# These two lines are equal
+color1 = getattr(myCar, 'color')
+print(color1) # Prints Red
+color2 = myCar.color
+print(color2) # Prints Red
+
+#input - allows you to prompt the user for some sort of input from the keyboard. The value of the input is always read as a string
+userInput = input("What is your name? ")
+print("The user's name is ", userInput)
+# Prints whatever you input
+
+#int() - takes in a floating point number or string and returns the integar rep of the input. Will remove the decimal numbers if provided a floating point number
+x = .18467
+y = 3.141592
+print("x - ", int(x)) # Prints x - 0
+print("y - ", int(y)) # Prints y - 3
+
+#isinstance() - will tell you if the provided object instance is or descended from the provided class type
+class Vehicle():
+    def __init__(self):
+        pass
+
+class Truck(Vehicle):
+    def __init__(self):
+        pass
+
+myCar = Vehicle()
+myTruck = Truck()
+print(isinstance(myCar, Vehicle)) # Prints True
+print(isinstance(myTruck, Vehicle)) # Prints True
+print(isinstance(myCar, Truck)) # Prints False
+
+#issubclass() - will tell you if a class is a descandant of another particular class
+class Vehicle():
+    def __init__(self):
+        pass
+
+class Truck(Vehicle):
+    def __init__(self):
+        pass
+        
+print(issubclass(Truck, Vehicle))
+# Prints True
+
+#iter() - returns an iterator object, allowing you to iterate over things that support iteration such as lists or dictionaries. Can read lines in a file until a line is reached
+## [Example](https://docs.python.org/3.6/library/functions.html#iter)
+#with open('mydata.txt') as fp:
+#    for line in iter(fp.readline, ''):
+#        process_line(line)
+
+#len() - takes in an object (string, tuple, list, range, set) and returns the number of items in said object. Useful for avoiding infinite loops and several other errors
+x = [1,3,5,7,9]
+y = (178,481)
+z = "HELLO THERE"
+print(len(x)) # Prints 5
+print(len(y)) # Prints 2
+print(len(z)) # Prints 11
+
+#max() - will return the larget number in a list or the larget of two parameters
+x = 6
+y = 8
+z = [1,2,3,4,5]
+print(max(x,y)) # Prints 8
+print(max(z)) # Prints 5
+
+#min() - will return the smallest number in a list or the smallest of two parameters
+x = 6
+y = 8
+z = [1,2,3,4,5]
+print(min(x,y)) # Prints 6
+print(min(z)) # Prints 1
+
+#next() -  used to return the next item from an iterator
+i = [1,3,4,5,6,7]
+x = iter(i) # we turn our list i into an iterator
+
+print(next(x)) # Prints 1
+print(next(x)) # Prints 3
+print(next(x)) # Prints 4
+
+#open() - opens a file and returns a file object, the first parameter is the path to the file while the second is the mode you wish to open a file w/
+file = open('textfile.txt', 'r')
+
+#pow() - returns the result of raising one parameter to the power of the other, same as using two asterisks (2 ** 4 = 16)
+x = 2
+y = 4
+print(pow(x, y)) # Prints 16
+
+#print() - prints text to the python terminal screen 
+print("Hello World")
+
+#range() - actually a data type, used in a variety of ways
+#When provided 1 parameter, the range will contain all the numbers from 0 to the parameter counting by 1
+#When provided 3 parameters, we end up w/ a range that starts at our first parameter, ends at our second, and counts by our third
+print(range(10)) # Prints range(0, 10)
+print(list(range(10))) # Prints [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+print(list(range(1, 10, 2))) # Prints [1, 3, 5, 7, 9]
+for x in range(10):
+    print(x) # Prints 0 through 9
+
+#reversed() - returns an iterator in reverse
+i = [1,3,4,5,6,7]
+x = reversed(i) # we turn our list i into an iterator
+
+print(next(x)) # Prints 7
+print(next(x)) # Prints 6
+print(next(x)) # Prints 5
+
+#round() - returns a rounded number to the nth precision
+pi = 3.14159265359
+print(round(pi, 4)) # Prints 3.1416
+
+#setattr() - function takes 3 parameters, an object, attribute name, and a value. It will then add a new attribute to the object w/ the value provided
+class Vehicle():
+    def __init__(self):
+        self.color = 'Red'
+myCar = Vehicle()
+# These two lines are equal
+setattr(myCar, 'mpg', 19)
+myCar.mpg = 19
+print(myCar.mpg) # Prints 19
+
+#slice() - returns a slice object, slice objects are used to return a slice of a list or tuple
+x = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]
+sliceObject = slice(1, 4)
+# These bottom two lines are equal
+print(x[sliceObject]) # Prints [4, 8, 16]
+print(x[1:4]) # Prints [4, 8, 16]
+
+#sorted() - takes 2 parametes, an input iterator (like a list or string) and a boolean indicating if you want to reverse the result
+x = "GIS PROGRAMMING"
+sort = sorted(x)
+reversedSort = sorted(x, reverse=True)
+print(sort) # Prints [' ', 'A', 'G', 'G', 'G', 'I', 'I', 'M', 'M', 'N', 'O', 'P', 'R', 'R', 'S']
+print(reversedSort) # Prints ['S', 'R', 'R', 'P', 'O', 'N', 'M', 'M', 'I', 'I', 'G', 'G', 'G', 'A', ' ']
+
+#str() - turns data types into string representations
+x = 43
+stringy = str(x)
+print(type(x)) # Prints <class 'int'>
+print(type(stringy)) # Prints <class 'str'>
+
+#sum() - returns the sum of all parts of an iterable, such as a list
+x = [5,6,7,1,3]
+print(sum(x))
+
+#tuple() - creates a new variable w/ a type tuple
+t = ("a","b","c")
+print(t)
+
+#type() - used to return the data type or class type a particular variable is
+x = 43
+stringy = str(x)
+print(type(x)) # Prints <class 'int'>
+print(type(stringy)) # Prints <class 'str'>
