@@ -22,7 +22,7 @@ class Triangle(Shape):
         return .5 * self.base * self.height
 
 
-file = open(r'C:\Users\Dylan\OneDrive\GEOS 676\GEOS_676_Lab_3_Doc.txt', 'r')
+file = open(r'C:\Users\Dylan\OneDrive\GEOS_676\GEOS_676_Lab_3_Doc.txt', 'r')
 lines = file.readlines()
 file.close()
 
