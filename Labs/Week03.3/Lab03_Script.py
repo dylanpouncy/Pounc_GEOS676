@@ -1,39 +1,33 @@
-#[https://github.tamu.edu/sichen/MGsc-Online-GEOG676-GIS-Programming/blob/master/homework/03.md] [Lab3]
-
-#Create a class for each shape found in the text file
-
-class Shape(): #ParentClass
+class Shape():
     def __init__(self):
         pass
-class Rectangle(Shape): #Subclasss
+class Rectangle(Shape):
     def __init__(self, l, w):
-        self.length = l #these are attributes
-        self.width = w #these are attributes
+        self.length = l 
+        self.width = w 
     def getArea(self):
         return self.length * self.width
 
-class Circle(Shape): #Subclasss
+class Circle(Shape): 
     def __init__(self, r):
         self.radius = r
     def getArea(self):
         return 3.14 * self.radius * self.radius
 
-class Triangle(Shape): #Subclasss
+class Triangle(Shape):
     def __init__(self, b, h):
         self.base = b
         self.height = h
     def getArea(self):
         return .5 * self.base * self.height
 
-#Read data in from the provided text file
 
 file = open(r'C:\Users\Dylan\OneDrive\GEOS 676\GEOS_676_Lab_3_Doc.txt', 'r')
 lines = file.readlines()
 file.close()
 
-#For each line, create a new object determined by the shape
 
-for line in lines: #'line' is the variable
+for line in lines: 
     components = line.split(',')
     shape = components[0]
 
@@ -49,5 +43,3 @@ for line in lines: #'line' is the variable
         print('Area of Triangle is: ', tri.getArea())
     else:
         pass
-
-#iterate through your list and print out the area for each shape
