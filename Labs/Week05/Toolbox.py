@@ -98,26 +98,3 @@ class GarageBuildingIntersection(object):
 
         input_layer = garages
         arcpy.FeatureClassToFeatureClass_conversion(input_layer, gdb_path, garage_layer_name)
-        garage_points = gdb_path + '\\' + garage_layer_name
-
-        #Open campus gdb, copy building feature to our gdb
-        campus = parameters[4].valueAsText
-        buildings_campus = campus + '\Structures'
-        buildings = gdb_path + '\\' + 'Buildings'
-
-        arcpy.Copy_management(buildings_campus, buildings)
-
-        #Reprojection
-        spatial_ref = arcpy.Describe(buildings_campus, buildings)
-        arcpy.Project_management(garage_points, gdb_path + '\Garage_points_reprojected', spatial_ref)
-
-        #buffer garages
-        buffer_distance = int(parameters[5].value)
-        garageBuffered = arcpy.Buffer_analysis(gdb_path + '\Garagae_points_reprojected', gdb_path + '\Garage_Points_buffered')
-
-        #intersect buffer and buildings
-        arcpy.Intersect_analysis([garageBuffered, buildings], gdb_path + '\Garage_Building_Intersection','ALL')
-
-        arcpy.TableToTable_conversion(gdb_path + '\Garage_Builidng_Intersection.dbf', 'C:\\Users\\Dylan\\OneDrive\\GEOS_676')
-
-        return None
