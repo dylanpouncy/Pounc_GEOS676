@@ -81,6 +81,7 @@ In this line of code, we assign the file housing the data to the varialbe 'file'
 The second parameter has many options to utilize and are listed below for reference:
 
 |Parameter Abbreviation | Mode | Function |
+|-------:|:----:|-------:|
 |r | read mode | allows you to read contents |
 | r+ | read and write mode | does not create a file if doesnt already exist |
 | w | write mode | allow you to read and modift the contents of a file |
