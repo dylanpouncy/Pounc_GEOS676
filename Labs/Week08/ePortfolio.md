@@ -1,15 +1,17 @@
 <ins>**GEOG 676 ePortfolio - The Industry Problem - Dylan Pouncy**</ins>
 
 **Project Overview:**
-The goal of lab 8 is to culminate the knowledge learned in GIS Programming thrughout the semester and solve a pertinent industry related issue to demonstrate both knowledge of GIS aplications and creativity.
+The goal of lab 8 is to culminate the knowledge learned in GIS Programming throughout the semester and solve a pertinent industry related issue. There is an emphasis to demonstrate both knowledge of GIS aplications and creativity.
 
 **The Industry Problem:**
 You are asked to build a software tool that builds a Master Well Database from numerous different databases. 
-Often companies have several databases of where they think their Wells are located.
+Often companies have several databases of where they think their wells are located.
 These could be from CAD, ArcGIS, Decision Space Geographics, Petrel, OpenWells, COMPASS, Drilling Info, HSI, State Regulatory, etc. 
-All these might not agree on the Well location.
+All these might not agree on well location.
 
-**Tool Description:** 
+<ins>**Project Requirements**</ins>
+
+**Tool Creation - Description:** 
 1. Imports all data opinions of well location
 2. Inverses between all the data and writes to a master well location trending position
 3. Build a check that determines if the coordinate was NAD83 vs. NAD27
@@ -33,6 +35,8 @@ All these might not agree on the Well location.
 6. Approach commenting, testing, status updates, and reporting
 7. Deploy, maintain, and archive your software
 
+<ins>**Framework**</ins>
+
 **Industry Solution Step Overview:**
 1. Project Preface - Software requirements 
 2. Data Collection - collect data from various databases that contains info about well locations. Use API calls, queries, and data connectors
@@ -45,7 +49,8 @@ All these might not agree on the Well location.
 
 <ins>Project Steps Detailed</ins>
 
-**Step 1 - Project Preface** 
+**Step 1 - Project Preface**
+
 This project will utilize many various software applications and packages that will need to be downloaded prior to work intiation. For this project, you will need working access and fundamental knowledge of:
 1. Python - A powerful open-source programming langauge
 2. Python Coding Environment - Although completion can be achieved utilizng a shell prompt, a code editor such as VSCode, Jupyter Notebook, or Atom will aid in the ease of debugging and implementation
@@ -58,6 +63,7 @@ A link to a lab displaying basic python calculations, as well as library importa
 
 
 **Step 2 - Data Collection**
+
 The first step in this project will be the gathering of data provided through the various sources. The sources known to supply data to this project can range from the following:
 - CAD
 - ArcGIS
@@ -70,8 +76,8 @@ The first step in this project will be the gathering of data provided through th
 - State Regulatory Data Providers
 - Others
 
-There are many methodologies, ranging from API calls, REST/GET, SQL Queries, Data Connectors, and more, that can be utilized to complete this task. The methodology we will use is a data connector through python.
-To complete this task, you can import libraries into you python environment to support the data reading. However, many methods native to python's base package can be utilized without importing any additional libraries.
+There are many methodologies, ranging from API calls, REST/GET, SQL Queries, Data Connectors, and more, that can be utilized to complete the task of data collection. The methodology we will use is a data connector through python.
+To complete this task, you can import libraries into your python environment to support the reading of data. However, there are many methods native to python's base package that can be utilized without importing any additional libraries.
 The following documentation will assist in opening, reading, and closing files housing well location data.
 
 ```python
@@ -79,7 +85,7 @@ The following documentation will assist in opening, reading, and closing files h
 file = open('computer\example_file_path.extension,'r')
 ```
 
-In this line of code, we assign the file housing the data to the varialbe 'file', use the method 'open()' to open the file, and a second parameter 'r' to establish what we want to do with the file.
+In this line of code, we assign the file housing the data to the varialbe 'file', use the method 'open()' to open the file, and a second parameter, 'r', to establish what we want to do with the file.
 
 The second parameter has many options to utilize and are listed below for reference:
 
@@ -118,7 +124,7 @@ file.close()
 
 In this line of code, we are interacting with our environment in a way that allows python to close the file in which we scraped data from. It is an important to close files after use to avoid errors and file corruption.
 
-You will replicate this process for all given input datasets until you have succesfully collected all necessary data points.
+You will replicate this process for all given input datasets until you have succesfully collected all necessary data points.:
 A link displaying these techniques is found here: https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/Labs/Week03/Lab03_Script.py
 
 
