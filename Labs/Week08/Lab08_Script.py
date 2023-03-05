@@ -238,8 +238,193 @@ To navigate and create a new custom python toolbox in ArcGIS, follow these steps
 
 From there, you have the ability to open the file within your code editor of choice and begin creating your custom tool. This tool will have a data input required from users that allows them to elect an aerial image of choice to view the master well locations
 When creating this tool, the data type can be one of hundreds of types. View ArcGIS's website for documentaion on which datatype to select here: https://pro.arcgis.com/en/pro-app/latest/arcpy/geoprocessing_and_python/defining-parameter-data-types-in-a-python-toolbox.htm
-The data type we will need to set the input parameter to is: 'DEImageServer' which allows for an input from an image service provided
 
 A link to a lab in which a custom tool box was created and implemented that allows users to select various layers is found here: https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/Labs/Week07/Lab07_Script.py
 
+
+Tool Creation - For this project, a custom tool should be created to accomplish the goals of the industry problem. This tool should do the following:
+
+1. Import all data opinions of well data
+2. Inverse between all the data and write to master well location trending position
+3. Build a check that determines if the coordinates were NAD83 or NAD27
+4. Allow the user to select the master well location from different aerial images
+
+To do this, you will need to navigate to the custom python toolbox previously created in step 7. Navigate to the "Add > Tool" button to create a new tool.
+From here, in the dialog boxes you can name your tool, specify the input parameters, and specify the output parameters of your tool. You can then move the python tool box file (.pyt extension) to your code editor to begin writing the tool script.
+
+See the below code to assist in creating the oil well location importation tool:
+
+import arcpy
+
+#Specify the input and output data sources
+input_csv = r"C:\data\wells.csv"
+output_fc = r"C:\data\master_wells.gdb\WellLocations"
+
+#Read the well location data from the input CSV file
+fields = ["WellID", "X", "Y"]
+data = [row for row in arcpy.da.SearchCursor(input_csv, fields)]
+
+#Write the data to the output feature class
+arcpy.management.CreateFeatureclass(
+    arcpy.env.workspace,
+    "WellLocations",
+    "POINT",
+    spatial_reference=arcpy.SpatialReference(4269)
+)
+with arcpy.da.InsertCursor(output_fc, fields) as cursor:
+    for row in data:
+        cursor.insertRow(row)
+
+See the below code to assist in implementing the coordinate system check tool:
+
+import arcpy
+
+#Specify the input feature class
+input_fc = r"C:\data\master_wells.gdb\WellLocations"
+
+#Get the spatial reference of the input feature class
+desc = arcpy.Describe(input_fc)
+sr = desc.spatialReference
+
+#Check if the spatial reference is NAD83 or NAD27
+if sr.name == "NAD_1983":
+    print("The well locations are in NAD83")
+elif sr.name == "NAD_1927":
+    print("The well locations are in NAD27")
+else:
+    print("The well locations are in an unknown coordinate system")
+
+See the below code to assist in implementing the master well location selection tool:
+
+import arcpy
+
+class SelectMasterWellLocation(object):
+    def __init__(self):
+        self.label = "Select Master Well Location"
+        self.description = "Allows the user to select the master well location from different aerial images."
+        self.category = "Oil Well Location Toolbox"
+
+    def getParameterInfo(self):
+        #Define the input and output parameters
+        params = []
+        
+        #Parameter 1: Input well location feature class
+        param = arcpy.Parameter(
+            displayName="Input Well Location Feature Class",
+            name="input_fc",
+            datatype="DEFeatureClass",
+            parameterType="Required",
+            direction="Input"
+        )
+        params.append(param)
+        
+        #Parameter 2: Aerial images directory
+        param = arcpy.Parameter(
+            displayName="Aerial Images Directory",
+            name="images_dir",
+            datatype="DEFolder",
+            parameterType="Required",
+            direction="Input"
+        )
+        params.append(param)
+        
+        #Parameter 3: Output well location feature class
+        param = arcpy.Parameter(
+            displayName="Output Well Location Feature Class",
+            name="output_fc",
+            datatype="DEFeatureClass",
+            parameterType="Required",
+            direction="Output"
+        )
+        params.append(param)
+        
+        return params
+
+    def isLicensed(self):
+        return True
+
+    def updateParameters(self, parameters):
+        return
+
+    def updateMessages(self, parameters):
+        return
+
+    def execute(self, parameters, messages):
+        #Get the input and output parameters
+        input_fc = parameters[0].valueAsText
+        images_dir = parameters[1].valueAsText
+        output_fc = parameters[2].valueAsText
+        
+        #Get a list of all the aerial image files in the directory
+        image_files = [f for f in os.listdir(images_dir) if f.endswith('.jpg') or f.endswith('.jpeg') or f.endswith('.png')]
+        
+        #Add the aerial images to the map
+        mxd = arcpy.mapping.MapDocument("CURRENT")
+        df = arcpy.mapping.ListDataFrames(mxd)[0]
+        for image_file in image_files:
+            image_path = os.path.join(images_dir, image_file)
+            image_layer = arcpy.mapping.Layer(image_path)
+            arcpy.mapping.AddLayer(df, image_layer)
+        
+        #Add the well location data to the map
+        well_layer = arcpy.mapping.Layer(input_fc)
+        arcpy.mapping.AddLayer(df, well_layer)
+        
+        #Allow the user to select the master well location from the map
+        arcpy.AddMessage("Please select the master well location from the map.")
+        master_location = arcpy.PointGeometry(arcpy.GetParameterAsText(0))
+        
+        #Create a new feature class with only the selected master well location
+        arcpy.management.CreateFeatureclass(
+            arcpy.env.workspace,
+            arcpy.Describe(input_fc).name,
+            "POINT",
+            spatial_reference=arcpy.SpatialReference(4269)
+        )
+        fields = ["WellID", "X", "Y"]
+        with arcpy.da.InsertCursor(output_fc, fields) as cursor:
+            cursor.insertRow([1, master_location.centroid.X, master_location.centroid.Y])
+        
+        #Remove the temporary layers from the map
+        arcpy.mapping.RemoveLayer(df, well_layer)
+        for image_layer in arcpy.mapping.ListLayers(df):
+            arcpy.mapping.RemoveLayer(df, image_layer)
+        
+        #Refresh the map
+        arcpy.RefreshActiveView()
+        arcpy.AddMessage("Master well location selected and written to output feature class.")
+
+
+Additional Requirements - 
+
+1. Justify the Return on Investment (ROI): This industry problem will have the given solution discussed which can be quantified from a return on investment (ROI) perspective. Businesses use this metric to justify their resource expenditures on worthy projects that warrant a sufficient return on resources expended.
+The cost of software utilized by the in-house software development team and salaries of software developers will be considered a sunk cost, and therefore not attributable to the ROI of this project.
+A generalized estimate of the ROI of this project will be 15%. The time and labor capital directed towards this project will have an opportunity cost upfront, but should be positive in later endeavors as the tools created will be archived and used throughout business operations into the future.
+The ROI of this project will be lower than what might be expected as this tool is under construction and will need periodical review to ensure its accuracy and capabilities. Assuming it takes a team of 2 software developers two days to create the tool and two days per quarter to maintain the effectiveness of the tools, the ROI can be estimated to be 15%.
+The creation of a master well location database that is accessible to all business units will pay dividends into perpetuity for the firm in the form of automated workflow and error reduction.
+
+2. Interface with Users: Users will be able to interact with the final product in a multitude of ways. Accessing the master well location database, assuming it is saved and accessible company-wide, can be done using excel, SQL, Snowflake, API Keys, and other data querying methods.
+The ArcGIS tool and maps will be accessible to users on the company subscription for use and manipulation as the differing business units see fit.
+
+3. Gather Requirements: The final products that serve to solve the problem presented should be rolled out to a limited number of users across the firm. The users should intentionally stress the capabilities of the tools to ensure accuracy and test features.
+Initial users should document errors, short comings, and other features desired for documentation and review. The software development team should then review the suggestions, implement suggestions, and fix any errors.
+The limitations and requirements users should test for are software requirements, authorization access barriers, flexibility of inputs, desired output capabilities, and sharability of the tools.
+
+4. Softwares, DB's, etc that will be used: Although previously mentioned, the requirements for this project from a creation and usage perspective are:
+4.1. A Working Computer
+4.2. Python
+4.3. Python Coding Environment
+4.4. Various Python Libraries
+4.5. ArcGIS Desktop Software
+4.6 Query Capabilites (SQL, Data Connectors, etc)
+4.7 File Explorer
+4.8 Data Sources
+
+5. Code with usages of Numpy, Model Builder, Arcpy, etc: The script, process flow, and implementation of code and the software used is listed throughout the "steps" of the industry problem
+
+6. Approach commenting, testing, status updates, and reporting: Periodic review and updates will likely need to be completed on the software and tools created. Input from users should be encouraged and expanded upon to ensure capabilities reflect the goals of the tools.
+Testing of the software should be done initially before rolling out the tools company-wide, and periodic testing should be done to ensure accuracy.
+
+7. Deploy, maintain, and archive your software: Saving all of the ouputs, including coding scripts, master well databases, and ArcGIS custom maps should be done in robust files tailored to the users preference.
+Maintanence of the tools can be acheived through building out error-debugging code, AddMessage() methods, and input filters to ensure proper use of tools and databases.
 """
