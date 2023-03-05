@@ -1,4 +1,4 @@
-<u>GEOG 676 ePortfolio - The Industry Problem - Dylan Pouncy</u>
+<U>GEOG 676 ePortfolio - The Industry Problem - Dylan Pouncy</U>
 
 Project Overview:
 The goal of lab 8 is to culminate the knowledge learned in GIS Programming thrughout the semester and solve a pertinent industry related issue to demonstrate both knowledge of GIS aplications and creativity.
