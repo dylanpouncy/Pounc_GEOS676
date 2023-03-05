@@ -1,5 +1,3 @@
-##Version 1##
-"""
 GEOG 676 ePortfolio - The Industry Problem - Dylan Pouncy
 
 Project Overview:
@@ -35,7 +33,7 @@ Additionnal Asks:
 6. Approach commenting, testing, status updates, and reporting
 7. Deploy, maintain, and archive your software
 
-Steps:
+Industry Solution Step Overview:
 1. Project Preface - Software requirements 
 2. Data Collection - collect data from various databases that contains info about well locations. Use API calls, queries, and data connectors
 3. Data Cleaning and Transformation - clean the collected data and integrate it into a single dataset. Check for duplicates, standardization, normalization, and validation
@@ -44,6 +42,7 @@ Steps:
 6. Build Graduated Color Layer - create in ArcGIS to indicate confidence of master well locations
 7. Aeriel Image Selection Tool - build a tool to allow users to select the master well location from different aerial images
 8. Testing and Deploymeny - test the software tool thoroughly and document its instructions and limitations, and deploy the software tool to the required environment
+
 
 Step 1 - Project Preface 
 This project will utilize many various software applications and packages that will need to be downloaded prior to work intiation. For this project, you will need working access and fundamental knowledge of:
@@ -69,14 +68,18 @@ The first step in this project will be the gathering of data provided through th
 - HSI
 - State Regulatory Data Providers
 - Others
+
 There are many methodologies, ranging from API calls, REST/GET, SQL Queries, Data Connectors, and more, that can be utilized to complete this task. The methodology we will use is a data connector through python.
 To complete this task, you can import libraries into you python environment to support the data reading. However, many methods native to python's base package can be utilized without importing any additional libraries.
 The following documentation will assist in opening, reading, and closing files housing well location data.
 
 #To Open a file for reading:
 file = open('computer\example_file_path.extension,'r')
+
 In this line of code, we assign the file housing the data to the varialbe 'file', use the method 'open()' to open the file, and a second parameter 'r' to establish what we want to do with the file.
+
 The second parameter has many options to utilize and are listed below for reference:
+
 |Parameter Abbreviation | Mode | Function |
 |r | read mode | allows you to read contents |
 | r+ | read and write mode | does not create a file if doesnt already exist |
@@ -87,17 +90,22 @@ The second parameter has many options to utilize and are listed below for refere
 
 #To Read the contents of the file:
 contents = file.read()
+
 In this line of code, we assign the data within the file to the variable 'contents', and use the method 'read()' to allow python to store the data into memory.
-It is recommended to couple a loop with the readline() method to read large data files in smaller chunks to preserve memory. An example is provided below:
+It is recommended to couple a loop with the readline() method to read large data files in smaller chunks to preserve memory. 
+An example is provided below:
+
 with open('computer\example_file_path.extension,'r') as file:
     line = file.readline()
     while line:
         print(line.strip())
         line = file.readline()
+
 In this script, we are opening a file and assigning it the variable 'file'. We then loop through lines, another variable, in file and read the data line by line. We use 'print()' as a placeholder, but you can replace this with a line of code to manipulate data line by line. Finally, we use 'line = file.readline()' to progress to the next line of data in the file.
 
 #To Close a file:
 file.close()
+
 In this line of code, we are interacting with our environment in a way that allows python to close the file in which we scraped data from. It is an important to close files after use to avoid errors and file corruption.
 
 You will replicate this process for all given input datasets until you have succesfully collected all necessary data points.
@@ -111,16 +119,20 @@ It is important to understand the data you are interacting with, so the first st
 To accomplish this, we will utilize a python library called 'Pandas' which will need to be imported into your environment like below:
 
 import pandas as pd
+
 In this line of code we are importing pandas into our environment and naming is 'pd' as an abbreviation.
 Once imported, we will check the datatypes using the method 'df.dtypes', and 'astype()', a pandas method to convert data types to types we desire. An example of this using a CSV is below:
 
 #Import data from a CSV file
+
 df = pd.read_csv('computer\well_locations.csv')
 
 #Check data types of columns
+
 print(df.dtypes)
 
 #Converting a column to an integer type
+
 df['x_coordinate'] = df['x_coordinate'].astype(int)
 
 After our data types are homogenous, the next step in data cleaning would be to address duplicate rows. To do this, you will need to analyze your data and establish a column to determine duplicates. In our hypothetical well location data set, we will use the column 'well_id'.
