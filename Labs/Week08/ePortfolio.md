@@ -124,7 +124,8 @@ file.close()
 
 In this line of code, we are interacting with our environment in a way that allows python to close the file in which we scraped data from. It is an important to close files after use to avoid errors and file corruption.
 
-You will replicate this process for all given input datasets until you have succesfully collected all necessary data points.:
+You will replicate this process for all given input datasets until you have succesfully collected all necessary data points.
+
 A link displaying these techniques is found here: https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/Labs/Week03/Lab03_Script.py
 
 
@@ -158,17 +159,19 @@ df['x_coordinate'] = df['x_coordinate'].astype(int)
 #After our data types are homogenous, the next step in data cleaning would be to address duplicate rows. To do this, you will need to analyze your data and establish a column to determine duplicates. In our hypothetical well location data set, we will use the column 'well_id'.
 
 df.drop_duplicates(subset = 'well_id', keep = 'first', inplace=False)
-
-#In this line of code we utilize the pandas method 'drop_duplicates()' to remove duplicates. We pass three parameters into the method:
-#Parameter 1: 'subset' specifices the columns to use when identifying duplicate rows. The default will use all columns to remove perfect matches, or you can specify a given column as we do.
-#Parameter 2: 'keep' specifices which duplicate rows to keep. The options are 'first', 'last', or 'false'. False will removes all duplicates
-#Parameter 3: 'inplace' specifies whether to modify the data set in place or return a new data set with the duplicates removed. True indicates to modify the old data frame, false will create a new data frame
-#For parameter 3, we will create a new file for the dataset so we do not lose the duplicated data points permanently. We will likely need to use these duplicates for data validation later.
-
-#Finally, we will want to save the cleaned data set to a new master well location file using the following script:
-df.to_csv('computer\master_well_location', index=False)
-#The first parameter in the 'df.to_csv()' method specifies the new file path name and location of the file, and the second parameter we use is 'index' and is set to true to include the row index as the first column. False would remove the row index
 ```
+In the above lines of code we utilize the pandas method 'drop_duplicates()' to remove duplicates. We pass three parameters into the method:
+- Parameter 1: 'subset' specifices the columns to use when identifying duplicate rows. The default will use all columns to remove perfect matches, or you can specify a given column as we do.
+- Parameter 2: 'keep' specifices which duplicate rows to keep. The options are 'first', 'last', or 'false'. False will removes all duplicates
+- Parameter 3: 'inplace' specifies whether to modify the data set in place or return a new data set with the duplicates removed. True indicates to modify the old data frame, false will create a new data frame
+Note, for parameter 3 we will create a new file for the dataset so we do not lose the duplicated data points permanently. We will likely need to use these duplicates for data validation later.
+
+Finally, we will want to save the cleaned data set to a new master well location file using the following script:
+```python
+df.to_csv('computer\master_well_location', index=False)
+```
+The first parameter in the 'df.to_csv()' method specifies the new file path name and location of the file, and the second parameter we use is 'index' and is set to true to include the row index as the first column. False would remove the row index
+
 
 We will iterate this same technique across all input data sets and combine the outputs into the master well location file. Once completed, we can check for duplicates once more to identify variances in well locations and determine accuracy.
 There are many different file types and datatypes that are utilized in python, ArcGIS, and file explorer. It is important to get familiar with the various types.
