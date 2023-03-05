@@ -73,15 +73,17 @@ There are many methodologies, ranging from API calls, REST/GET, SQL Queries, Dat
 To complete this task, you can import libraries into you python environment to support the data reading. However, many methods native to python's base package can be utilized without importing any additional libraries.
 The following documentation will assist in opening, reading, and closing files housing well location data.
 
+'''python
 #To Open a file for reading:
 file = open('computer\example_file_path.extension,'r')
+'''
 
 In this line of code, we assign the file housing the data to the varialbe 'file', use the method 'open()' to open the file, and a second parameter 'r' to establish what we want to do with the file.
 
 The second parameter has many options to utilize and are listed below for reference:
 
 |Parameter Abbreviation | Mode | Function |
-|-------:|:----:|-------:|
+|:-------:|:----:|:-------:|
 |r | read mode | allows you to read contents |
 | r+ | read and write mode | does not create a file if doesnt already exist |
 | w | write mode | allow you to read and modift the contents of a file |
@@ -89,23 +91,29 @@ The second parameter has many options to utilize and are listed below for refere
 | a | append mode | allows you to read and add to the contents of a file |
 | a+ | append mode | same as a, but will create a file if it doesnt exist |
 
+'''python
 #To Read the contents of the file:
 contents = file.read()
+'''
 
 In this line of code, we assign the data within the file to the variable 'contents', and use the method 'read()' to allow python to store the data into memory.
 It is recommended to couple a loop with the readline() method to read large data files in smaller chunks to preserve memory. 
 An example is provided below:
 
+'''python
 with open('computer\example_file_path.extension,'r') as file:
     line = file.readline()
     while line:
         print(line.strip())
         line = file.readline()
+'''
 
 In this script, we are opening a file and assigning it the variable 'file'. We then loop through lines, another variable, in file and read the data line by line. We use 'print()' as a placeholder, but you can replace this with a line of code to manipulate data line by line. Finally, we use 'line = file.readline()' to progress to the next line of data in the file.
 
+'''python
 #To Close a file:
 file.close()
+'''
 
 In this line of code, we are interacting with our environment in a way that allows python to close the file in which we scraped data from. It is an important to close files after use to avoid errors and file corruption.
 
