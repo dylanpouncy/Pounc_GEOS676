@@ -1,21 +1,21 @@
-<ins>GEOG 676 ePortfolio - The Industry Problem - Dylan Pouncy</ins>
+<ins>**GEOG 676 ePortfolio - The Industry Problem - Dylan Pouncy**</ins>
 
-Project Overview:
+**Project Overview:**
 The goal of lab 8 is to culminate the knowledge learned in GIS Programming thrughout the semester and solve a pertinent industry related issue to demonstrate both knowledge of GIS aplications and creativity.
 
-The Industry Problem:
+**The Industry Problem:**
 You are asked to build a software tool that builds a Master Well Database from numerous different databases. 
 Often companies have several databases of where they think their Wells are located.
 These could be from CAD, ArcGIS, Decision Space Geographics, Petrel, OpenWells, COMPASS, Drilling Info, HSI, State Regulatory, etc. 
 All these might not agree on the Well location.
 
-Tool Description: 
+**Tool Description:** 
 1. Imports all data opinions of well location
 2. Inverses between all the data and writes to a master well location trending position
 3. Build a check that determines if the coordinate was NAD83 vs. NAD27
 4. Build a tool that allows users to select the master well location from different aerial images
 
-Fundamental Framework Questions:
+**Fundamental Framework Questions:**
 1. Where will the software development be done - lab 1
 2. How to load several data sets to project that represent well locations - lab 3
 3. Inverse coordinates of the different well locations to determine accuracy - lab 2
@@ -24,7 +24,7 @@ Fundamental Framework Questions:
 6. Build a graduated color well to indicate confidence of master well location - lab 6
 7. Use aerial images to check master well database - lab 7
 
-Additionnal Asks:
+**Additionnal Asks:**
 1. Justify the return on investment (ROI)
 2. Interface with users
 3. Gather requirements
@@ -33,7 +33,7 @@ Additionnal Asks:
 6. Approach commenting, testing, status updates, and reporting
 7. Deploy, maintain, and archive your software
 
-Industry Solution Step Overview:
+**Industry Solution Step Overview:**
 1. Project Preface - Software requirements 
 2. Data Collection - collect data from various databases that contains info about well locations. Use API calls, queries, and data connectors
 3. Data Cleaning and Transformation - clean the collected data and integrate it into a single dataset. Check for duplicates, standardization, normalization, and validation
@@ -43,8 +43,9 @@ Industry Solution Step Overview:
 7. Aeriel Image Selection Tool - build a tool to allow users to select the master well location from different aerial images
 8. Testing and Deploymeny - test the software tool thoroughly and document its instructions and limitations, and deploy the software tool to the required environment
 
+<ins>Project Steps Detailed</ins>
 
-Step 1 - Project Preface 
+**Step 1 - Project Preface** 
 This project will utilize many various software applications and packages that will need to be downloaded prior to work intiation. For this project, you will need working access and fundamental knowledge of:
 1. Python - A powerful open-source programming langauge
 2. Python Coding Environment - Although completion can be achieved utilizng a shell prompt, a code editor such as VSCode, Jupyter Notebook, or Atom will aid in the ease of debugging and implementation
@@ -56,7 +57,7 @@ Upon creation of a repository, you can clone the repository using widget in GitH
 A link to a lab displaying basic python calculations, as well as library importation is found here: https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/Labs/Week02/Lab02_Script.py
 
 
-Step 2 - Data Collection 
+**Step 2 - Data Collection**
 The first step in this project will be the gathering of data provided through the various sources. The sources known to supply data to this project can range from the following:
 - CAD
 - ArcGIS
@@ -121,7 +122,7 @@ You will replicate this process for all given input datasets until you have succ
 A link displaying these techniques is found here: https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/Labs/Week03/Lab03_Script.py
 
 
-Step 3 - Data Cleaning and Transformation
+**Step 3 - Data Cleaning and Transformation**
 In this step, we will look to clean the collected data through standardization, duplication checking, and other techniques applicable. We then will consolidate the cleaned data into a master well location data set for use in the next steps.
 
 It is important to understand the data you are interacting with, so the first step in data cleaning will be to check data types and convert to homogenous data forms for further analysis.
@@ -168,7 +169,7 @@ There are many different file types and datatypes that are utilized in python, A
 
 A link to a lab displaying data manipulation is found here: https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/Labs/Week03/Lab03_Script.py
 
-Step 4 - Geodatabase Creation
+**Step 4 - Geodatabase Creation**
 For step 4, we will be taking the collected and cleaned data and writing the data to a new file to create a geodatabase for use in our ArcGIS project.
 There are many types of files that can be housed on your computer, and for this step we will be creating a GeoDataBase (GDB), which utilizes the extension '.gdb'
 In this step, you will utilize many arcpy methods such as: 'arcpy.CreateFileGDB_management()', 'arcpy.MakeXYEventLayer_management()', and 'arcpy.Project_management()' among others.
@@ -202,7 +203,7 @@ arcpy.Project_management(Well_Locations_Points, gdb_path + '\Well_Locations_repr
 A link to a lab demonstrating a case use of this in a different format can be found here: https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/Labs/Week04/Week04_Script.py
 
 
-Step 5 - Building a Buffer
+**Step 5 - Building a Buffer**
 In this step, we will learn how to build buffers and utilize them to filter or categorize input data. Picking up from the last example, we will utilize the previously created geodatabase.
 
 ```python
@@ -219,7 +220,7 @@ In our code, we are passing previously created feature class files into the meth
 A link to a lab displaying buffer analysis further can be found here: https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/Labs/Week05/Lab05_Script.py
 
 
-Step 6 - Building a Graduated Color Renderer
+**Step 6 - Building a Graduated Color Renderer**
 ArcGIS offers several methods for defining ranges and colors used in renderers, as well as many different types. These are used to display quantitative data and visually represent data by varying the color of the symbol based on data values associated with a feature class.
 In this example, we will use the count of equivalent well locations as the guage to well location confidence, meaning well locations verified across various data sources will have a higer level of confidence, and therefore a different color scheme.
 For this project we will build a graduated color but ArcGIS offers a range of renderers from Simple to Unique Value renderers. The following code can demonstrate how to build a graduated color renderer
@@ -260,7 +261,7 @@ A link to a lab showing renderer building can be found here: https://github.com/
 A link to module notes explaining loops and iteration can be found here: https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/ModuleNotes/Module2Notes.py
 
 
-Step 7 - Using Aerial Images to Check Master Well Database
+**Step 7 - Using Aerial Images to Check Master Well Database**
 In this step we will build a custom tool in ArcGIS to allow the user to select the Master Well Location from different aerial images.
 To do this, you will need to create a custom tool within ArcGIS, which can be done either through the desktop application or imported from python via Custom Python Toolbox
 To navigate and create a new custom python toolbox in ArcGIS, follow these steps:
@@ -277,7 +278,8 @@ View ArcGIS's website for documentaion on which datatype to select here: https:/
 A link to a lab in which a custom tool box was created and implemented that allows users to select various layers is found here: https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/Labs/Week07/Lab07_Script.py
 
 
-Tool Creation - For this project, a custom tool should be created to accomplish the goals of the industry problem. This tool should do the following:
+**Tool Creation**
+For this project, a custom tool should be created to accomplish the goals of the industry problem. This tool should do the following:
 
 1. Import all data opinions of well data
 2. Inverse between all the data and write to master well location trending position
@@ -434,7 +436,7 @@ class SelectMasterWellLocation(object):
         arcpy.AddMessage("Master well location selected and written to output feature class.")
 ```
 
-Additional Requirements - 
+**Additional Requirements Addressed-**
 
 1. Justify the Return on Investment (ROI): This industry problem will have the given solution discussed which can be quantified from a return on investment (ROI) perspective. Businesses use this metric to justify their resource expenditures on worthy projects that warrant a sufficient return on resources expended.
 The cost of software utilized by the in-house software development team and salaries of software developers will be considered a sunk cost, and therefore not attributable to the ROI of this project.
