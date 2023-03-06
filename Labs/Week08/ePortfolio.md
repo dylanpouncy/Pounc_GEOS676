@@ -227,10 +227,10 @@ arcpy.Project_management(input_layer, gdb_path + '\Well_Locations_Reprojected', 
 arcpy.Project_management(Well_Locations_Points, gdb_path + '\Well_Locations_reprojected', spatial_ref) 
 ```
 
-A link to a lab demonstrating a case use of this in a different format can be found here: https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/Labs/Week04/Week04_Script.py
+A link to a lab demonstrating a use case of this in a different format can be found here: https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/Labs/Week04/Week04_Script.py
 
 
-**Step 5 - Building a Buffer**
+**Step 5 - Building a Buffer** <br>
 In this step, we will learn how to build buffers and utilize them to filter or categorize input data. Picking up from the last example, we will utilize the previously created geodatabase.
 
 ```python
