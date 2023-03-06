@@ -1,11 +1,11 @@
 <ins>**GEOG 676 ePortfolio - The Industry Problem - Dylan Pouncy**</ins>
 
 **Project Overview:**
-The goal of lab 8 is to culminate the knowledge learned in GIS Programming throughout the semester and solve a pertinent industry related issue. There is an emphasis to demonstrate both knowledge of GIS aplications and creativity.
+The goal of lab 8 is to culminate the knowledge learned in GIS Programming throughout the semester and solve a pertinent industry related issue. There is an emphasis to demonstrate both knowledge of GIS applications and creativity.
 
 **The Industry Problem:**
 You are asked to build a software tool that builds a Master Well Database from numerous different databases. 
-Often companies have several databases of where they think their wells are located.
+Often companies have several databases of where they think their wells are located. 
 These could be from CAD, ArcGIS, Decision Space Geographics, Petrel, OpenWells, COMPASS, Drilling Info, HSI, State Regulatory, etc. 
 All these might not agree on well location.
 
@@ -30,8 +30,8 @@ All these might not agree on well location.
 1. Justify the return on investment (ROI)
 2. Interface with users
 3. Gather requirements
-4. Softwares, Databases, etc to be used
-5. Code with usages of Numpy, SciPy, PySAL, Moderl Builder, and/or ArcPy
+4. Software, Databases, etc to be used
+5. Code with usages of Numpy, SciPy, PySAL, Model Builder, and/or ArcPy
 6. Approach commenting, testing, status updates, and reporting
 7. Deploy, maintain, and archive your software
 
@@ -51,13 +51,13 @@ All these might not agree on well location.
 
 **Step 1 - Project Preface**
 
-This project will utilize many various software applications and packages that will need to be downloaded prior to work intiation. For this project, you will need working access and fundamental knowledge of:
-1. Python - A powerful open-source programming langauge
-2. Python Coding Environment - Although completion can be achieved utilizng a shell prompt, a code editor such as VSCode, Jupyter Notebook, or Atom will aid in the ease of debugging and implementation
+This project will utilize many various software applications and packages that will need to be downloaded prior to work initiation. For this project, you will need working access and fundamental knowledge of:
+1. Python - A powerful open-source programming language
+2. Python Coding Environment - Although completion can be achieved utilizing a shell prompt, a code editor such as VSCode, Jupyter Notebook, or Atom will aid in the ease of debugging and implementation
 3. ArcGIS Pro - A desktop-based geographic information system software utilized for the output of this project
 4. Various Python Libraries - Installation and importation of various python libraries will be necessary to ease the completion of the project. These libraries include but are not limited to: ArcPy, NumPy, PySAL, Pandas, and Requests)
-5. File Explorer - A software tool used to manage file folders and create new databases for implementation in the project
-Additionall, you can download the Github extension into your coding environment and create a GitHub repository for collaboration and error checking amongst peers. This will be done through GitHub's desktop application.
+5. File Explorer - A software tool used to manage file folders and create new databases for implementation in the project. 
+Additionally, you can download the Github extension into your coding environment and create a GitHub repository for collaboration and error checking amongst peers. This will be done through GitHub's desktop application. 
 Upon creation of a repository, you can clone the repository using widget in GitHub and begin syncing the repository with scripts and files created in your coding environment
 A link to a lab displaying basic python calculations, as well as library importation is found here: https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/Labs/Week02/Lab02_Script.py
 
@@ -85,18 +85,18 @@ The following documentation will assist in opening, reading, and closing files h
 file = open('computer\example_file_path.extension,'r')
 ```
 
-In this line of code, we assign the file housing the data to the varialbe 'file', use the method 'open()' to open the file, and a second parameter, 'r', to establish what we want to do with the file.
+In this line of code, we assign the file housing the data to the variable 'file', use the method 'open()' to open the file, and a second parameter, 'r', to establish what we want to do with the file.
 
 The second parameter has many options to utilize and are listed below for reference:
 
 |Parameter Abbreviation | Mode | Function |
 |:-------:|:----:|:-------:|
 |r | read mode | allows you to read contents |
-| r+ | read and write mode | does not create a file if doesnt already exist |
-| w | write mode | allow you to read and modift the contents of a file |
-| w+ | write mode | same as w, but will create a file if it doesnt exist |
+| r+ | read and write mode | does not create a file if does not already exist |
+| w | write mode | allow you to read and modify the contents of a file |
+| w+ | write mode | same as w, but will create a file if it does not exist |
 | a | append mode | allows you to read and add to the contents of a file |
-| a+ | append mode | same as a, but will create a file if it doesnt exist |
+| a+ | append mode | same as a, but will create a file if it does not exist |
 
 ```python
 #To Read the contents of the file:
@@ -124,7 +124,7 @@ file.close()
 
 In this line of code, we are interacting with our environment in a way that allows python to close the file in which we scraped data from. It is an important to close files after use to avoid errors and file corruption.
 
-You will replicate this process for all given input datasets until you have succesfully collected all necessary data points.
+You will replicate this process for all given input datasets until you have successfully collected all necessary data points.
 
 A link displaying these techniques is found here: https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/Labs/Week03/Lab03_Script.py
 
@@ -448,7 +448,7 @@ class SelectMasterWellLocation(object):
         arcpy.AddMessage("Master well location selected and written to output feature class.")
 ```
 
-**Additional Requirements Addressed-**
+**Additional Requirements Addressed**
 
 1. <ins>Justify the Return on Investment (ROI):</ins> This industry problem will have the given solution discussed which can be quantified from a return on investment (ROI) perspective. Businesses use this metric to justify their resource expenditures on worthy projects that warrant a sufficient return on resources expended.
 The cost of software utilized by the in-house software development team and salaries of software developers will be considered a sunk cost, and therefore not attributable to the ROI of this project.
