@@ -59,10 +59,10 @@ This project will utilize many various software applications and packages that w
 5. File Explorer - A software tool used to manage file folders and create new databases for implementation in the project. 
 Additionally, you can download the Github extension into your coding environment and create a GitHub repository for collaboration and error checking amongst peers. This will be done through GitHub's desktop application. 
 Upon creation of a repository, you can clone the repository using widget in GitHub and begin syncing the repository with scripts and files created in your coding environment<br>
-<br>
+
 A link to a lab displaying basic python calculations, as well as library importation is found here: https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/Labs/Week02/Lab02_Script.py
 
-
+<br>
 **Step 2 - Data Collection**
 
 The first step in this project will be the gathering of data provided through the various sources. The sources known to supply data to this project can range from the following:
