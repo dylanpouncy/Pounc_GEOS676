@@ -192,24 +192,39 @@ In our industry problem, we would use the cleaned data output file to create our
 ```python
 import arcpy
 
-arcpy.env.workspace = r'C:\\Users\\OneDr\\Master_Well_Locations\\Databasecreation' #Here we are establishing a python environment to work in
-folder_path = r'C:\\Users\\OneDr\\Master_Well_Locations' #We have selected the folder path in which the database will be created from
-gdb_name = 'Master_Well_Location.gdb' #Establishing a name for our new GDB, in the form of a string
-gdb_path = folder_path + '\\' + gdb_name #Establishing the file path for our future GDB
-arcpy.CreateFileGDB_management(folder_path, gdb_name, overwrite_existing=True) - #This arcpy method is used to create a GDB using the given input parameters. We utilize 'overwrite_existing=True' to overwrite an existing file, if present, to prevent 'ERROR 000258'
-arcpy.CreateFileGDB_management(folder_path, gdb_name) #The method to create the new GDB
+#We first establish a python environment to work in
+arcpy.env.workspace = r'C:\\Users\\OneDr\\Master_Well_Locations\\Databasecreation'
+#Selecting the folder path in which the database will be created from
+folder_path = r'C:\\Users\\OneDr\\Master_Well_Locations' 
+#Establishing a name for our new GDB, in the form of a string
+gdb_name = 'Master_Well_Location.gdb'
+#Establishing the file path for our future GDB
+gdb_path = folder_path + '\\' + gdb_name 
+#This arcpy method is used to create a GDB using the given input parameters. We utilize 'overwrite_existing=True' to overwrite an existing file, if present, to prevent 'ERROR 000258'
+arcpy.CreateFileGDB_management(folder_path, gdb_name, overwrite_existing=True) 
+#This method will be used to create the new GDB
+arcpy.CreateFileGDB_management(folder_path, gdb_name) 
 
-csv_path = r'C:\\Users\\OneDr\\Master_Well_Locations.csv' #Linking the cleaned and collected input data file for use in GDB creation
-Well_Locations = 'Well Coordinates' #Establishing a variable for the well coordinates in the data
-Wells = arcpy.MakeXYEventLayer_management(csv_path, 'X','Y', Well_Locations) #Utilizing arcpy method 'MakeXYEventLayer_management()', we create a layer within our GDB that contains well location coordinates
+#Linking the cleaned and collected input data file for use in GDB creation
+csv_path = r'C:\\Users\\OneDr\\Master_Well_Locations.csv'
+#Establishing a variable for the well coordinates in the data
+Well_Locations = 'Well Coordinates' 
+#Utilizing arcpy method 'MakeXYEventLayer_management()', we create a layer within our GDB that contains well location coordinates
+Wells = arcpy.MakeXYEventLayer_management(csv_path, 'X','Y', Well_Locations) 
 
-input_layer = Wells #Creating a variables for our wells
-arcpy.FeatureClassToGeodatabase_conversion(input_layer, gdb_path) #We are now converting our feature class layer into a geodatabase using arcpy method 'FeatureClassToGeodatabase_conversion()'
-Well_Locations_Points = gdb_path + '\\' + well_layer_name #We are now creating a new file for use later that houses our well location data
+#Creating a variables for our wells
+input_layer = Wells
+#Converting our feature class layer into a geodatabase using arcpy method 'FeatureClassToGeodatabase_conversion()'
+arcpy.FeatureClassToGeodatabase_conversion(input_layer, gdb_path)
+#We are now creating a new file for use later that houses our well location data
+Well_Locations_Points = gdb_path + '\\' + well_layer_name 
 
-spatial_ref = arcpy.Describe(wells).spatialReference #We now are reprojecting our wells using spatial reference methods within arcpy
-arcpy.Project_management(input_layer, gdb_path + '\Well_Locations_Reprojected', spatial_ref) #Updating the project to reflect the spatial references
-arcpy.Project_management(Well_Locations_Points, gdb_path + '\Well_Locations_reprojected', spatial_ref) #Creating a file to reflect the updates
+#Reprojecting our wells using spatial reference methods within arcpy
+spatial_ref = arcpy.Describe(wells).spatialReference 
+#Updating the project to reflect the spatial references
+arcpy.Project_management(input_layer, gdb_path + '\Well_Locations_Reprojected', spatial_ref)
+#Creating a file to reflect the updates
+arcpy.Project_management(Well_Locations_Points, gdb_path + '\Well_Locations_reprojected', spatial_ref) 
 ```
 
 A link to a lab demonstrating a case use of this in a different format can be found here: https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/Labs/Week04/Week04_Script.py
