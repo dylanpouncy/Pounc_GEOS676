@@ -174,15 +174,14 @@ Finally, we will want to save the cleaned data set to a new master well location
 ```python
 df.to_csv('computer\master_well_location', index=False)
 ```
-The first parameter in the 'df.to_csv()' method specifies the new file path name and location of the file, and the second parameter we use is 'index' and is set to true to include the row index as the first column. False would remove the row index
-
+The first parameter in the 'df.to_csv()' method specifies the new file path name and location of the file, and the second parameter we use is 'index' and is set to true to include the row index as the first column. False would remove the row index.
 
 We will iterate this same technique across all input data sets and combine the outputs into the master well location file. Once completed, we can check for duplicates once more to identify variances in well locations and determine accuracy.
 There are many different file types and datatypes that are utilized in python, ArcGIS, and file explorer. It is important to get familiar with the various types.
 
-A link to a lab displaying data manipulation is found here: https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/Labs/Week03/Lab03_Script.py
+A link to a lab displaying data manipulation in python is found here: https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/Labs/Week03/Lab03_Script.py
 
-**Step 4 - Geodatabase Creation**
+**Step 4 - Geodatabase Creation** <br>
 For step 4, we will be taking the collected and cleaned data and writing the data to a new file to create a geodatabase for use in our ArcGIS project.
 There are many types of files that can be housed on your computer, and for this step we will be creating a GeoDataBase (GDB), which utilizes the extension '.gdb'
 In this step, you will utilize many arcpy methods such as: 'arcpy.CreateFileGDB_management()', 'arcpy.MakeXYEventLayer_management()', and 'arcpy.Project_management()' among others.
