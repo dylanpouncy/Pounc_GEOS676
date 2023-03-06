@@ -63,6 +63,7 @@ Upon creation of a repository, you can clone the repository using widget in GitH
 A link to a lab displaying basic python calculations, as well as library importation is found here: https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/Labs/Week02/Lab02_Script.py
 
 <br>
+
 **Step 2 - Data Collection**
 
 The first step in this project will be the gathering of data provided through the various sources. The sources known to supply data to this project can range from the following:
@@ -140,8 +141,8 @@ To accomplish this, we will utilize a python library called 'Pandas' which will 
 import pandas as pd
 ```
 
-In this line of code we are importing pandas into our environment and naming is 'pd' as an abbreviation.
-Once imported, we will check the datatypes using the method 'df.dtypes', and 'astype()', a pandas method to convert data types to types we desire. An example of this using a CSV is below:
+In this line of code we are importing pandas into our environment and naming it 'pd' as an abbreviation.
+Once imported, we will check the data types using the methods 'df.dtypes'. We will utilize 'astype()' in pandas method to convert data types to types we desire. An example of this using a CSV is below:
 
 ```python
 #Import data from a CSV file
@@ -166,6 +167,8 @@ In the above lines of code we utilize the pandas method 'drop_duplicates()' to r
 - Parameter 2: 'keep' specifices which duplicate rows to keep. The options are 'first', 'last', or 'false'. False will removes all duplicates
 - Parameter 3: 'inplace' specifies whether to modify the data set in place or return a new data set with the duplicates removed. True indicates to modify the old data frame, false will create a new data frame
 Note, for parameter 3 we will create a new file for the dataset so we do not lose the duplicated data points permanently. We will likely need to use these duplicates for data validation later.
+
+This step might not be ideal for our industry problem as we will use duplicates to validate and ensure accuracy, however the technique is listed for reference.
 
 Finally, we will want to save the cleaned data set to a new master well location file using the following script:
 ```python
