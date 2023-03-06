@@ -45,7 +45,7 @@ All these might not agree on well location.
 5. Build Buffers - Create buffers in ArcGIS to determine well input data type
 6. Build Graduated Color Layer - create in ArcGIS to indicate confidence of master well locations
 7. Aeriel Image Selection Tool - build a tool to allow users to select the master well location from different aerial images
-8. Testing and Deploymeny - test the software tool thoroughly and document its instructions and limitations, and deploy the software tool to the required environment
+8. Testing and Deployment - test the software tool thoroughly and document its instructions and limitations, and deploy the software tool to the required environment
 
 <ins>Project Steps Detailed</ins>
 
@@ -58,7 +58,8 @@ This project will utilize many various software applications and packages that w
 4. Various Python Libraries - Installation and importation of various python libraries will be necessary to ease the completion of the project. These libraries include but are not limited to: ArcPy, NumPy, PySAL, Pandas, and Requests)
 5. File Explorer - A software tool used to manage file folders and create new databases for implementation in the project. 
 Additionally, you can download the Github extension into your coding environment and create a GitHub repository for collaboration and error checking amongst peers. This will be done through GitHub's desktop application. 
-Upon creation of a repository, you can clone the repository using widget in GitHub and begin syncing the repository with scripts and files created in your coding environment
+Upon creation of a repository, you can clone the repository using widget in GitHub and begin syncing the repository with scripts and files created in your coding environment<br>
+<br>
 A link to a lab displaying basic python calculations, as well as library importation is found here: https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/Labs/Week02/Lab02_Script.py
 
 
