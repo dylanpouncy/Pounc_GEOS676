@@ -247,16 +247,19 @@ In our code, we are passing previously created feature class files into the meth
 A link to a lab displaying buffer analysis further can be found here: https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/Labs/Week05/Lab05_Script.py
 
 
-**Step 6 - Building a Graduated Color Renderer**
+**Step 6 - Building a Graduated Color Renderer** <br>
 ArcGIS offers several methods for defining ranges and colors used in renderers, as well as many different types. These are used to display quantitative data and visually represent data by varying the color of the symbol based on data values associated with a feature class.
 In this example, we will use the count of equivalent well locations as the guage to well location confidence, meaning well locations verified across various data sources will have a higer level of confidence, and therefore a different color scheme.
 For this project we will build a graduated color but ArcGIS offers a range of renderers from Simple to Unique Value renderers. The following code can demonstrate how to build a graduated color renderer
 
 ```python
-import arcpy #you will need to import the arcpy library into your environment
+#you will need to import the arcpy library into your environment
+import arcpy 
 
-project = arcpy.mp.ArcGISProject(r"C:/OneDr/Master_Well_Locations/" + r"GDB\\.aprx") #Create a variable to establish a link to your ongoing project
-Well_Locations = project.listMaps('Map')[0] #Grab the first map in the .aprx
+#Create a variable to establish a link to your ongoing project
+project = arcpy.mp.ArcGISProject(r"C:/OneDr/Master_Well_Locations/" + r"GDB\\.aprx") 
+#Grab the first map in the .aprx
+Well_Locations = project.listMaps('Map')[0] 
 
 #Create a loop to iterate through available layers in the map
 for layer in Well_Locations.listLayers():
@@ -283,14 +286,14 @@ for layer in Well_Locations.listLayers():
 project.saveACopy(r"C:/OneDr/Master_Well_Locations/" + r"GDBv.2\\.aprx")
 ```
 
-We will utilize many arcpy methods as well as iteration techniques in this step. The following reference material will help clarify:
+We will utilize many arcpy methods as well as iteration techniques in this step. The following reference material will help clarify: <br>
 <br>
 A link to a lab showing renderer building can be found here: https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/Labs/Week06/Lab06_Script.py <br>
 <br>
 A link to module notes explaining loops and iteration can be found here: https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/ModuleNotes/Module2Notes.py
 
 
-**Step 7 - Using Aerial Images to Check Master Well Database**
+**Step 7 - Using Aerial Images to Check Master Well Database** <br>
 In this step we will build a custom tool in ArcGIS to allow the user to select the Master Well Location from different aerial images.
 To do this, you will need to create a custom tool within ArcGIS, which can be done either through the desktop application or imported from python via Custom Python Toolbox
 To navigate and create a new custom python toolbox in ArcGIS, follow these steps:
