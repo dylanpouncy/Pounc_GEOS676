@@ -491,14 +491,14 @@ The limitations and requirements users should test for are software requirements
 
 4. <ins>Softwares, DB's, etc that will be used:</ins> <br>
 Although previously mentioned, the requirements for this project from a creation and usage perspective are:
-<br>* A Working Computer
-<br>* Python
-<br>* Python Coding Environment
-<br>* Various Python Libraries
-<br>* ArcGIS Desktop Software
-<br>* Query Capabilites (SQL, Data Connectors, etc)
-<br>* File Explorer
-<br>* Data Sources
+<br>- A Working Computer
+<br>- Python
+<br>- Python Coding Environment
+<br>- Various Python Libraries
+<br>- ArcGIS Desktop Software
+<br>- Query Capabilites (SQL, Data Connectors, etc)
+<br>- File Explorer
+<br>- Data Sources
 
 5. <ins>Code with usages of Numpy, Model Builder, Arcpy, etc:</ins> <br>
 The script, process flow, and implementation of code and the software used is listed throughout the "steps" of the industry problem
