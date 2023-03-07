@@ -306,9 +306,11 @@ To navigate and create a new custom python toolbox in ArcGIS, follow these steps
 From there, you have the ability to open the file within your code editor of choice and begin creating your custom tool. This tool will have a data input required from users that allows them to elect an aerial image of choice to view the master well locations
 When creating this tool, the data type can be one of hundreds of types. <br>
 <br>
-View ArcGIS's website for documentaion on which datatype to select here: https://pro.arcgis.com/en/pro-app/latest/arcpy/geoprocessing_and_python/defining-parameter-data-types-in-a-python-toolbox.htm
+View ArcGIS's website for documentaion on which datatype to select here: <br>
+https://pro.arcgis.com/en/pro-app/latest/arcpy/geoprocessing_and_python/defining-parameter-data-types-in-a-python-toolbox.htm
 <br>
-A link to a lab in which a custom tool box was created and implemented that allows users to select various layers is found here: https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/Labs/Week07/Lab07_Script.py
+A link to a lab in which a custom tool box was created and implemented that allows users to select various layers is found here: 
+https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/Labs/Week07/Lab07_Script.py
 
 
 <ins>**Tool Creation**</ins>
@@ -471,28 +473,32 @@ class SelectMasterWellLocation(object):
 
 **Additional Requirements Addressed**
 
-1. <ins>Justify the Return on Investment (ROI):</ins> This industry problem will have the given solution discussed which can be quantified from a return on investment (ROI) perspective. Businesses use this metric to justify their resource expenditures on worthy projects that warrant a sufficient return on resources expended.
+1. <ins>Justify the Return on Investment (ROI):</ins> <br>
+This industry problem will have the solution previously discussed which can be quantified from a return on investment (ROI) perspective. Businesses use this metric to justify their resource expenditures on worthy projects that warrant a sufficient return on resources expended.
 The cost of software utilized by the in-house software development team and salaries of software developers will be considered a sunk cost, and therefore not attributable to the ROI of this project.
 A generalized estimate of the ROI of this project will be 15%. The time and labor capital directed towards this project will have an opportunity cost upfront, but should be positive in later endeavors as the tools created will be archived and used throughout business operations into the future.
 The ROI of this project will be lower than what might be expected as this tool is under construction and will need periodical review to ensure its accuracy and capabilities. Assuming it takes a team of 2 software developers two days to create the tool and two days per quarter to maintain the effectiveness of the tools, the ROI can be estimated to be 15%.
 The creation of a master well location database that is accessible to all business units will pay dividends into perpetuity for the firm in the form of automated workflow and error reduction.
 
-2. <ins>Interface with Users:</ins> Users will be able to interact with the final product in a multitude of ways. Accessing the master well location database, assuming it is saved and accessible company-wide, can be done using excel, SQL, Snowflake, API Keys, and other data querying methods.
+2. <ins>Interface with Users:</ins> <br>
+Users will be able to interact with the final product in a multitude of ways. Accessing the master well location database, assuming it is saved and accessible company-wide, can be done using excel, SQL, Snowflake, API Keys, and other data querying methods.
 The ArcGIS tool and maps will be accessible to users on the company subscription for use and manipulation as the differing business units see fit.
 
-3. <ins>Gather Requirements:</ins> The final products that serve to solve the problem presented should be rolled out to a limited number of users across the firm. The users should intentionally stress the capabilities of the tools to ensure accuracy and test features.
+3. <ins>Gather Requirements:</ins> <br>
+The final products that serve to solve the problem presented should be rolled out to a limited number of users across the firm. The users should intentionally stress the capabilities of the tools to ensure accuracy and test features.
 Initial users should document errors, short comings, and other features desired for documentation and review. The software development team should then review the suggestions, implement suggestions, and fix any errors.
 The limitations and requirements users should test for are software requirements, authorization access barriers, flexibility of inputs, desired output capabilities, and sharability of the tools.
 
-4. <ins>Softwares, DB's, etc that will be used:</ins> Although previously mentioned, the requirements for this project from a creation and usage perspective are:
-4.1. A Working Computer
-4.2. Python
-4.3. Python Coding Environment
-4.4. Various Python Libraries
-4.5. ArcGIS Desktop Software
-4.6 Query Capabilites (SQL, Data Connectors, etc)
-4.7 File Explorer
-4.8 Data Sources
+4. <ins>Softwares, DB's, etc that will be used:</ins> <br>
+Although previously mentioned, the requirements for this project from a creation and usage perspective are: <br>
+<br>4.1. A Working Computer
+<br>4.2. Python
+<br>4.3. Python Coding Environment
+<br>4.4. Various Python Libraries
+<br>4.5. ArcGIS Desktop Software
+<br>4.6 Query Capabilites (SQL, Data Connectors, etc)
+<br>4.7 File Explorer
+<br>4.8 Data Sources
 
 5. <ins>Code with usages of Numpy, Model Builder, Arcpy, etc:</ins> The script, process flow, and implementation of code and the software used is listed throughout the "steps" of the industry problem
 
