@@ -490,7 +490,7 @@ Initial users should document errors, short comings, and other features desired 
 The limitations and requirements users should test for are software requirements, authorization access barriers, flexibility of inputs, desired output capabilities, and sharability of the tools.
 
 4. <ins>Softwares, DB's, etc that will be used:</ins> <br>
-Although previously mentioned, the requirements for this project from a creation and usage perspective are: <br>
+Although previously mentioned, the requirements for this project from a creation and usage perspective are:
 <br>4.1. A Working Computer
 <br>4.2. Python
 <br>4.3. Python Coding Environment
@@ -500,10 +500,13 @@ Although previously mentioned, the requirements for this project from a creation
 <br>4.7 File Explorer
 <br>4.8 Data Sources
 
-5. <ins>Code with usages of Numpy, Model Builder, Arcpy, etc:</ins> The script, process flow, and implementation of code and the software used is listed throughout the "steps" of the industry problem
+5. <ins>Code with usages of Numpy, Model Builder, Arcpy, etc:</ins> <br>
+The script, process flow, and implementation of code and the software used is listed throughout the "steps" of the industry problem
 
-6. <ins>Approach commenting, testing, status updates, and reporting:</ins> Periodic review and updates will likely need to be completed on the software and tools created. Input from users should be encouraged and expanded upon to ensure capabilities reflect the goals of the tools.
+6. <ins>Approach commenting, testing, status updates, and reporting:</ins> <br>
+Periodic review and updates will likely need to be completed on the software and tools created. Input from users should be encouraged and expanded upon to ensure capabilities reflect the goals of the tools.
 Testing of the software should be done initially before rolling out the tools company-wide, and periodic testing should be done to ensure accuracy.
 
-7. <ins>Deploy, maintain, and archive your software:</ins> Saving all of the ouputs, including coding scripts, master well databases, and ArcGIS custom maps should be done in robust files tailored to the users preference.
+7. <ins>Deploy, maintain, and archive your software:</ins> <br>
+Saving all of the ouputs, including coding scripts, master well databases, and ArcGIS custom maps should be done in robust files tailored to the users preference.
 Maintanence of the tools can be acheived through building out error-debugging code, AddMessage() methods, and input filters to ensure proper use of tools and databases.
