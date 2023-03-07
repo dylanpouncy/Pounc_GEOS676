@@ -131,7 +131,7 @@ You will replicate this process for all given input datasets until you have succ
 A link displaying these techniques is found here: https://github.com/dylanpouncy/Pounc_GEOS676/blob/main/Labs/Week03/Lab03_Script.py
 
 
-**Step 3 - Data Cleaning and Transformation**
+**Step 3 - Data Cleaning and Transformation** <br>
 In this step, we will look to clean the collected data through standardization, duplication checking, and other techniques applicable. We then will consolidate the cleaned data into a master well location data set for use in the next steps.
 
 It is important to understand the data you are interacting with, so the first step in data cleaning will be to check data types and convert to homogenous data forms for further analysis.
@@ -249,7 +249,7 @@ A link to a lab displaying buffer analysis further can be found here: https://gi
 
 **Step 6 - Building a Graduated Color Renderer** <br>
 ArcGIS offers several methods for defining ranges and colors used in renderers, as well as many different types. These are used to display quantitative data and visually represent data by varying the color of the symbol based on data values associated with a feature class.
-In this example, we will use the count of equivalent well locations as the guage to well location confidence, meaning well locations verified across various data sources will have a higer level of confidence, and therefore a different color scheme.
+In this example, we will use the count of equivalent well locations as the gauge to well location confidence, meaning well locations verified across various data sources will have a higher level of confidence, and therefore a different color scheme.
 For this project we will build a graduated color but ArcGIS offers a range of renderers from Simple to Unique Value renderers. The following code can demonstrate how to build a graduated color renderer
 
 ```python
@@ -307,7 +307,7 @@ From there, you have the ability to open the file within your code editor of cho
 When creating this tool, the data type can be one of hundreds of types.
 Further tool creation explanation is found below step 7. <br>
 <br>
-View ArcGIS's website for documentaion on which datatype to select here: <br>
+View ArcGIS's website for documentation on which datatype to select here: <br>
 https://pro.arcgis.com/en/pro-app/latest/arcpy/geoprocessing_and_python/defining-parameter-data-types-in-a-python-toolbox.htm <br>
 <br>
 A link to a lab in which a custom tool box was created and implemented that allows users to select various layers is found here: 
@@ -488,7 +488,7 @@ The ArcGIS tool and maps will be accessible to users on the company subscription
 3. <ins>Gather Requirements:</ins> <br>
 The final products that serve to solve the problem presented should be rolled out to a limited number of users across the firm. The users should intentionally stress the capabilities of the tools to ensure accuracy and test features.
 Initial users should document errors, short comings, and other features desired for documentation and review. The software development team should then review the suggestions, implement suggestions, and fix any errors.
-The limitations and requirements users should test for are software requirements, authorization access barriers, flexibility of inputs, desired output capabilities, and sharability of the tools.
+The limitations and requirements users should test for are software requirements, authorization access barriers, flexibility of inputs, desired output capabilities, and shareability of the tools.
 
 4. <ins>Softwares, DB's, etc that will be used:</ins> <br>
 Although previously mentioned, the requirements for this project from a creation and usage perspective are:
@@ -497,7 +497,7 @@ Although previously mentioned, the requirements for this project from a creation
 <br>- Python Coding Environment
 <br>- Various Python Libraries
 <br>- ArcGIS Desktop Software
-<br>- Query Capabilites (SQL, Data Connectors, etc)
+<br>- Query Capabilities (SQL, Data Connectors, etc)
 <br>- File Explorer
 <br>- Data Sources
 
@@ -509,5 +509,5 @@ Periodic review and updates will likely need to be completed on the software and
 Testing of the software should be done initially before rolling out the tools company-wide, and periodic testing should be done to ensure accuracy.
 
 7. <ins>Deploy, maintain, and archive your software:</ins> <br>
-Saving all of the ouputs, including coding scripts, master well databases, and ArcGIS custom maps should be done in robust files tailored to the users preference.
-Maintanence of the tools can be acheived through building out error-debugging code, AddMessage() methods, and input filters to ensure proper use of tools and databases.
+Saving all of the outputs, including coding scripts, master well databases, and ArcGIS custom maps should be done in robust files tailored to the users preference.
+Maintenance of the tools can be acheived through building out error-debugging code, AddMessage() methods, and input filters to ensure proper use of tools and databases.
