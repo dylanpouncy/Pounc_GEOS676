@@ -304,7 +304,8 @@ To navigate and create a new custom python toolbox in ArcGIS, follow these steps
 4. Select the file path in which you would like to save the toolbox
 
 From there, you have the ability to open the file within your code editor of choice and begin creating your custom tool. This tool will have a data input required from users that allows them to elect an aerial image of choice to view the master well locations
-When creating this tool, the data type can be one of hundreds of types. <br>
+When creating this tool, the data type can be one of hundreds of types.
+A further tool creation explanation is found below step 7. <br>
 <br>
 View ArcGIS's website for documentaion on which datatype to select here: <br>
 https://pro.arcgis.com/en/pro-app/latest/arcpy/geoprocessing_and_python/defining-parameter-data-types-in-a-python-toolbox.htm
